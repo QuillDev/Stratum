@@ -1,4 +1,4 @@
 name: Stratum
 version: ${project.version}
-main: tech.quilldev.Quilldev
+main: tech.quilldev.Stratum
 api-version: 1.16

@@ -1,16 +1,16 @@
 package tech.quilldev;
 
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import tech.quilldev.Events.onJoin;
 
-public final class Quilldev extends JavaPlugin {
+public final class Stratum extends JavaPlugin {
 
 
     @Override
     public void onEnable() {
-        var pluginManager = getServer().getPluginManager();
+        System.out.println("WORKING ON STRATUM");
 
+        var pluginManager = getServer().getPluginManager();
         pluginManager.registerEvents(new onJoin(), this);
     }
 
