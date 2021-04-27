@@ -1,23 +1,34 @@
 package tech.quilldev.Events;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextColor;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import tech.quilldev.Constants;
 
 public class onJoin implements Listener {
 
     @EventHandler
     void onPlayerJoin(PlayerJoinEvent event) {
         var player = event.getPlayer();
-        var serverName = "DWorld";
-        var comp = Component.text("Welcome to ")
-                .append(Component.text(serverName))
-                .append(Component.text(" "))
-                .append(Component.text(player.getName()))
-                .color(TextColor.color(255, 0, 0));
-        event.joinMessage(comp);
+
+
+        //Components
+        var serverName = Component.text(Constants.WORLD_NAME).style(Style.style(TextDecoration.ITALIC));
+        var joinIcon = Component.text("+").style(Style.style(TextDecoration.BOLD));
+
+        event.joinMessage(
+                Component.empty()
+                        .append(joinIcon)
+                        .append(Component.text((" Welcome to ")))
+                        .append(serverName)
+                        .append(Component.text(" "))
+                        .append(Component.text(player.getName()))
+                        .color(TextColor.color(23, 255, 95))
+        );
 
     }
 
