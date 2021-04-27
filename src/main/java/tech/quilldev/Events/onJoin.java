@@ -9,15 +9,15 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class onJoin implements Listener {
 
     @EventHandler
-    void onPlayerJoin(PlayerJoinEvent e) {
-        var player = e.getPlayer();
+    void onPlayerJoin(PlayerJoinEvent event) {
+        var player = event.getPlayer();
         var serverName = "DWorld";
         var comp = Component.text("Welcome to ")
                 .append(Component.text(serverName))
                 .append(Component.text(" "))
                 .append(Component.text(player.getName()))
                 .color(TextColor.color(255, 0, 0));
-        e.joinMessage(comp);
+        event.joinMessage(comp);
 
     }
 
