@@ -14,7 +14,7 @@ public class onMessage implements Listener {
         event.setCancelled(true);
 
         var player = event.getPlayer();
-        var tag = Component.text("[" + player.getName() + "] ").color(TextColor.color(0, 0, 255));
+        var tag = Component.text("[" + player.getName() + "] ").color(TextColor.color(108, 255, 159));
 
         player.getServer().sendMessage(
                 Component.empty()
