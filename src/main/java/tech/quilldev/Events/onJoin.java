@@ -10,10 +10,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import tech.quilldev.Constants;
 
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
-import java.util.Objects;
-
 public class onJoin implements Listener {
 
     @EventHandler
@@ -35,8 +31,7 @@ public class onJoin implements Listener {
                         .color(TextColor.color(23, 255, 95))
         );
 
-        var times = Title.Times.of(Duration.ZERO, Duration.of(2, ChronoUnit.SECONDS), Duration.of(1, ChronoUnit.SECONDS));
-
+        //TODO Reduce duration
         var title = Title.title(
                 Component.empty()
                         .append(
