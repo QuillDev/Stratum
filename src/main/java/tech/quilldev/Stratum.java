@@ -2,6 +2,7 @@ package tech.quilldev;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import tech.quilldev.Commands.ChangeServer;
+import tech.quilldev.Commands.Lobby;
 import tech.quilldev.Commands.NewWorld;
 import tech.quilldev.Events.onJoin;
 import tech.quilldev.Events.onLeave;
@@ -23,9 +24,12 @@ public final class Stratum extends JavaPlugin {
         pluginManager.registerEvents(new onMessage(), this);
         pluginManager.registerEvents(new onLeave(), this);
 
+        var changeServer = new ChangeServer(configManager);
+
         //Add executable commands
         Objects.requireNonNull(this.getCommand("newworld")).setExecutor(new NewWorld(configManager));
-        Objects.requireNonNull(this.getCommand("changeserver")).setExecutor(new ChangeServer(configManager));
+        Objects.requireNonNull(this.getCommand("changeserver")).setExecutor(changeServer);
+        Objects.requireNonNull(this.getCommand("lobby")).setExecutor(new Lobby(changeServer));
     }
 
     @Override
