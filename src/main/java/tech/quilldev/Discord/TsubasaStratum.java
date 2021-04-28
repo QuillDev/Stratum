@@ -9,7 +9,10 @@ import net.kyori.adventure.text.TextComponent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChatEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import tech.quilldev.Config.ConfigManager;
+import tech.quilldev.Constants;
 
 import javax.security.auth.login.LoginException;
 import java.util.Objects;
@@ -34,9 +37,20 @@ public class TsubasaStratum implements Listener {
 
     @EventHandler
     public void onGameChat(AsyncChatEvent chatEvent) {
-        //hatEvent.message().
         final var msg = (TextComponent) chatEvent.message();
         final var name = chatEvent.getPlayer().getName();
         this.channel.sendMessage(name + ": " + msg.content()).queue();
+    }
+
+    @EventHandler
+    public void onPlayerLeave(PlayerQuitEvent chatEvent) {
+        final var name = chatEvent.getPlayer().getName();
+        this.channel.sendMessage(":wave: " + name + " has **left** " + Constants.WORLD_NAME + "!").queue();
+    }
+
+    @EventHandler
+    public void onPlayerLeave(PlayerJoinEvent chatEvent) {
+        final var name = chatEvent.getPlayer().getName();
+        this.channel.sendMessage(":wave: " + name + " has **joined** " + Constants.WORLD_NAME + "!").queue();
     }
 }
