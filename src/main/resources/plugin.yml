@@ -2,11 +2,3 @@ name: Stratum
 version: ${project.version}
 main: tech.quilldev.Stratum
 api-version: 1.16
-
-commands:
-  newworld:
-    usage: /<command> [name]
-  changeserver:
-    usage: /<command> [player] [worldname]
-  lobby:
-    usage: /<command>

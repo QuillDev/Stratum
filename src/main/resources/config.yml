@@ -1,0 +1,5 @@
+discordConfig:
+  discordToken: PutDiscordTokenHere
+  channelId: PutChannelIdHere
+serverConfig:
+  serverName: Stratum

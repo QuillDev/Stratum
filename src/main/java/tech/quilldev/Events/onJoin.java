@@ -35,7 +35,7 @@ public class onJoin implements Listener {
         var title = Title.title(
                 Component.empty()
                         .append(
-                                Component.text("Welcome to DWorld")
+                                Component.text("Welcome to " + Constants.WORLD_NAME)
                                         .style(Style.style(TextDecoration.BOLD))
                                         .color(TextColor.color(23, 255, 95))
                         )
