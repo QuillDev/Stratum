@@ -4,10 +4,15 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import net.kyori.adventure.title.Title;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import tech.quilldev.Constants;
+
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 
 public class onJoin implements Listener {
 
@@ -30,6 +35,20 @@ public class onJoin implements Listener {
                         .color(TextColor.color(23, 255, 95))
         );
 
+        var times = Title.Times.of(Duration.ZERO, Duration.of(2, ChronoUnit.SECONDS), Duration.of(1, ChronoUnit.SECONDS));
+
+        var title = Title.title(
+                Component.empty()
+                        .append(
+                                Component.text("Welcome to DWorld")
+                                        .style(Style.style(TextDecoration.BOLD))
+                                        .color(TextColor.color(23, 255, 95))
+                        )
+                ,
+                Component.empty()
+        );
+
+        player.showTitle(title);
     }
 
 }
