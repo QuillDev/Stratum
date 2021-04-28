@@ -6,25 +6,33 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.Bukkit;
 
+
 public class onDiscordMessageEvent extends ListenerAdapter {
 
     private final String channelId;
-    public onDiscordMessageEvent(String channelId){
+
+    public onDiscordMessageEvent(String channelId) {
         this.channelId = channelId;
     }
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if (event.getAuthor().isBot()) return;
-        if(!event.getChannel().getId().equals(channelId)) return;
+        if (!event.getChannel().getId().equals(channelId)) return;
 
-        //Print the content of the message
-        String content = event.getMessage().getContentDisplay();
         String author = event.getMessage().getAuthor().getName();
-        Bukkit.getServer().sendMessage(
-                Component.empty()
-                .append(Component.text("[DISCORD] ").color(TextColor.color(185, 44, 255)))
-                .append(Component.text(author + ": " + content))
-        );
+
+
+        final var discordTag = Component.text("[DISCORD]")
+                .append(Component.text(" "))
+                .color(TextColor.color(185, 44, 255));
+
+        final var minecraftContent = Component.text(author)
+                .append(Component.text(": "))
+                .append(Component.text(event.getMessage().getContentDisplay()))
+                .color(TextColor.color(210, 210, 210));
+
+
+        Bukkit.getServer().sendMessage(discordTag.append(minecraftContent));
     }
 }

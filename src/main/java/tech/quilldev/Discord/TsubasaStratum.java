@@ -53,4 +53,12 @@ public class TsubasaStratum implements Listener {
         final var name = chatEvent.getPlayer().getName();
         this.channel.sendMessage(":wave: " + name + " has **joined** " + Constants.WORLD_NAME + "!").queue();
     }
+
+    /**
+     * Shutdown the bot
+     */
+    public void close() {
+        assert bot != null;
+        this.bot.shutdownNow();
+    }
 }
