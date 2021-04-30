@@ -4,6 +4,7 @@ import net.kyori.adventure.text.format.TextColor;
 
 public enum Rank {
     MEMBER(0, "Member", TextColor.color(59, 255, 70)),
+    BUILDER(95, "Builder", TextColor.color(140, 3, 8)),
     ADMIN(98, "Admin", TextColor.color(255, 76, 57)),
     DEVELOPER(99, "Dev", TextColor.color(49, 255, 252)),
     OWNER(100, "Owner", TextColor.color(221, 33, 255));

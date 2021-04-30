@@ -43,16 +43,18 @@ public class TsubasaStratum implements Listener {
     }
 
     @EventHandler
-    public void onPlayerLeave(PlayerQuitEvent chatEvent) {
+    public void onPlayerJoin(PlayerJoinEvent chatEvent) {
         final var name = chatEvent.getPlayer().getName();
-        this.channel.sendMessage(":wave: " + name + " has **left** " + Constants.WORLD_NAME + "!").queue();
+        this.channel.sendMessage("<:plus:837195255572332553>" + name + " has **joined** " + Constants.WORLD_NAME + "!").queue();
     }
 
     @EventHandler
-    public void onPlayerLeave(PlayerJoinEvent chatEvent) {
+    public void onPlayerLeave(PlayerQuitEvent chatEvent) {
         final var name = chatEvent.getPlayer().getName();
-        this.channel.sendMessage(":wave: " + name + " has **joined** " + Constants.WORLD_NAME + "!").queue();
+        this.channel.sendMessage("<:minus:837195255916134400>" + name + " has **left** " + Constants.WORLD_NAME + "!").queue();
     }
+
+
 
     /**
      * Shutdown the bot

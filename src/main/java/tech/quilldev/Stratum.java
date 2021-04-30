@@ -7,7 +7,9 @@ import tech.quilldev.Database.DatabaseManager;
 import tech.quilldev.Discord.TsubasaStratum;
 import tech.quilldev.Events.onJoin;
 import tech.quilldev.Events.onLeave;
-import tech.quilldev.Events.onMessage;
+import tech.quilldev.commands.LinkItem;
+
+import java.util.Objects;
 
 public final class Stratum extends JavaPlugin {
 
@@ -23,9 +25,10 @@ public final class Stratum extends JavaPlugin {
 
         var pluginManager = getServer().getPluginManager();
         pluginManager.registerEvents(new onJoin(), this);
-        pluginManager.registerEvents(new onMessage(), this);
         pluginManager.registerEvents(new onLeave(), this);
         pluginManager.registerEvents(databaseManager, this);
+
+        Objects.requireNonNull(getCommand("show")).setExecutor(new LinkItem());
 
         //Run discord stuff on it's own thread
         new Thread(() -> {
